@@ -369,3 +369,29 @@ props: {
 }
 ```
 
+### 2.4 Brining All Together
+we have 2 assignment lists 
+they consist of single assignment
+so create 3 components : 
+- Assignment for list element
+- AssignmnetList - for ul
+- Assignments for wrapper 
+ 
+
+## 3. Event Handling
+### 3.1 Handle Form Submission
+- listening when form is submitted 
+- page refreshed - we want to prevent default action 
+therefore we call
+`@submit.prevent="add"`
+
+### 3.2 Parent-child state communication
+we have form component and we want to communicate with parent one 
+- pass as prop  - but one thing that is weird that we will have access to all assignments all the time
+
+Parent is passing properties to the child 
+Child communicate back by emitting back to event 
+`$emit(event, data)`
+
+submit - 
+Component fire an event  `add` --- 
