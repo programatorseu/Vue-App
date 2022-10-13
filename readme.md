@@ -251,10 +251,79 @@ vue added to the dom
 
 ### 2.1 First Custom Vue Components
 
+component like with blade - everything could be a component 
 
+- create custom view component 
+
+wile is processing should be deactivated : 
+
+```
+:disabled="processing"
+```
+
+```js
+    let app = {
+            components: {
+                'app-button': {
+                    template: `
+                        <button 
+                            class="bg-gray-200 hover:bg-gray-400 border rounded px-5 py-2"
+                            :disabled="processing">
+                            <slot />
+                        </button>
+                    `,
+                    data() {
+                        return {
+                            processing: true
+                        };
+                    }
+```
 
 
 
 ### 2.2 One Vue Component per file
 
-### 2.3 Component Prop 
+components/AppButton.js
+
+create JS module to export 
+
+```js
+export default {
+    template: `
+	...
+	data..
+}
+```
+
+then import inside script that is module enabled !
+
+```js
+   <script type="module">
+        import AppButton from './components/AppButton.js';
+        let app = {
+            components: {
+                'app-button': AppButton
+            }
+        }
+```
+
+
+
+### 2.3 Component Props
+
+create main App component file : 
+
+```js
+import AppButton from './AppButton.js';
+export default {
+    components: {
+        'app-button': AppButton
+    }
+}
+```
+
+
+
+-  how pass data from outside into inside 
+
+  

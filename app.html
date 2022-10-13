@@ -11,13 +11,8 @@
         <app-button>submit</app-button>
     </div>
     <script type="module">
-        import AppButton from './components/AppButton.js';
-        let app = {
-            components: {
-                'app-button': AppButton
-            }
-        }
-        Vue.createApp(app).mount('#app');
+        import App from "./components/App.js";
+        Vue.createApp(App).mount('#app');
     </script>
 </body>
 </html>
