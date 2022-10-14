@@ -13,7 +13,7 @@ export default {
             <assignment-list 
                 :assignments="filters.completed" 
                 title="Completed" 
-                can-toggle
+                can-togglet
                 @toggle="showCompleted = !showCompleted"
             ></assignment-list>
         </div> 
