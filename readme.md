@@ -479,3 +479,17 @@ we can pass after column and we will not need to change Tags
 ```js
 v-model:currentTag
 ```
+### 4.4 Lifecycle hooks / fake API and AJAX 
+-> set Fake Api
+```bash
+npm install json-server --save-dev
+```
+create source : db.json
+
+`npx json-server db.json -p 3001`
+
+**Lifecycle**
+ component render - mounted - unmounted goes after lifecycle methods 
+
+ Promise - we will get eventually 
+ - `created()` method of Assignments
