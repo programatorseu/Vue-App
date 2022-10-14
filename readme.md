@@ -394,4 +394,88 @@ Child communicate back by emitting back to event
 `$emit(event, data)`
 
 submit - 
-Component fire an event  `add` --- 
+Component fire an event  `add` 
+
+## 4. Beyond Basics
+### 4.1 Playing aroundz
+- show total number of assignments  -> make dynamic
+```js
+  <span>({{assignments.length }})</span>
+```
+### 4.2 Component Responsibility
+-- thinking like "should this component should be responsible for that" 
+component might be responsible with so many things 
+
+- create component for tags
+    - take template
+    - create computed property for generating tags 
+    -> pass initial Tags in `AssignmentList` 
+
+    = current tag - communicate between AssignmentList and AssignmentTags
+     on Button `@click="$emit()` we pass : 
+        - change event
+        - tag that was clicked 
+    inside AssignmentList we listen for `@change` of current tag     
+
+        - pass as prop currentTag for selection : 
+
+
+### 4.3 A deeper look at V-Model
+- we can apply to input and everything is async
+v-model is 
+    - setting value of input 
+    - listening for input 
+
+if we would like to do by hand  - long form : 
+```js
+    <div id="app">
+        <input type="text" :value="name" @input="name = $event.target.value">
+    </div>
+    <script type="module">
+        
+        Vue.createApp({
+            data() {
+                return {
+                    name: ''
+                };
+            }
+        }).mount('#app');
+```
+similar situation is with our `AssignmentTags`
+
+```js
+   <assignment-tags 
+                :initial-tags="assignments.map(a => a.tag)"
+                :current-tag="currentTag"
+                @change="currentTag = $event" />
+
+```
+in our list add `v-model` :
+```js
+    <assignment-tags 
+        v-model="currentTag"
+        :initial-tags="assignments.map(a => a.tag)"
+    />
+```
+
+```js
+    <button
+        @click="$emit('update:modelValue', tag)"
+        v-for="tag in tags" 
+        class="border rounded px-1 py-px text-xs"
+        :class="{
+            'border-blue-500 text-blue-500': tag === modelValue 
+        }"
+    >{{ tag }}</button> 
+```
+and remember about props
+```js
+    props: {    
+        initialTags: Array,
+        modelValue: String
+    },
+```
+we can pass after column and we will not need to change Tags
+```js
+v-model:currentTag
+```
