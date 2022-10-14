@@ -493,3 +493,9 @@ create source : db.json
 
  Promise - we will get eventually 
  - `created()` method of Assignments
+
+ ### 4.5 Flexible components with Slots 
+ npm script to run 2 commands 
+ add slot if we want to put after from outside 
+ - use flags
+`canToggle: {type: Boolean, default: false}`
