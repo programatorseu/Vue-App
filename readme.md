@@ -142,6 +142,11 @@ state button - "on, active"
 
 ### 1.3 Lists conditionals and computed properties
 
+steps: 
+- import tailwind to play 
+- add markup for completed and incompleted ones 
+
+
 ```js
         let app = {
             data() {
