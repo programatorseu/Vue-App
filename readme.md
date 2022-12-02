@@ -3,10 +3,11 @@
 ## 1. Begining 
 
 ### 1.1 Basics
-
+To play with of course we can use npm but we just basically 
 - pull on from cdn
+`<script src="https://unpkg.com/vue@3"></script>`
 
-Vue `createApp` and `mount` to page element 
+Vue 2 methods `createApp` and `mount` to place element on page
 
 `createApp` - create object for our application 
 
